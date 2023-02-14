@@ -1,0 +1,3 @@
+/home/mudx2/Desktop/EDD-Proyecto1-Limpio/cmake-build-debug/CMakeFiles/EDD_Proyecto1_Limpio.dir
+/home/mudx2/Desktop/EDD-Proyecto1-Limpio/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/mudx2/Desktop/EDD-Proyecto1-Limpio/cmake-build-debug/CMakeFiles/rebuild_cache.dir
