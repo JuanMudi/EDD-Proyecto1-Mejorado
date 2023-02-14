@@ -36,8 +36,8 @@ void Comandos::procesamiento(){
     while (token!=NULL) {
         parametros.push_back(token);
         token = (std::strtok(NULL, " "));
-
     }
+    seleccion();
 }
 void Comandos::seleccion() {
     switch(switchmap.find(std::string(parametros[0]))->second)
@@ -87,20 +87,54 @@ void Comandos::seleccion() {
     }
 
 }
-int Comandos::cargar_comandos()
-{}
-int Comandos::cargar_elementos(){}
-int Comandos::agregar_movimiento(){}
-int Comandos::agregar_analisis(){}
-int Comandos::agregar_elemento(){}
-int Comandos::guardar(){}
-int Comandos::simular_comandos(){}
-int Comandos::salir(){}
-int Comandos::ubicar_elementos(){}
-int Comandos::en_cuadrante(){}
-int Comandos::crear_mapa(){}
-int Comandos::ruta_mas_larga(){}
-int Comandos::ayuda(){}
+int Comandos::cargar_comandos(){
+    if(parametros[1]==NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[2]!=NULL){
+        std::cout << "SE HAN INGRESADO MAS DE 2 PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
+    std::cout << "COMANDO VALIDO" << std::endl;
+    return 0;
+}
+int Comandos::cargar_elementos(){
+    return 0;
+}
+int Comandos::agregar_movimiento(){
+    return 0;
+}
+int Comandos::agregar_analisis(){
+    return 0;
+}
+int Comandos::agregar_elemento(){
+    return 0;
+}
+int Comandos::guardar(){
+    return 0;
+}
+int Comandos::simular_comandos(){
+    return 0;
+}
+int Comandos::salir(){
+    return 0;
+}
+int Comandos::ubicar_elementos(){
+    return 0;
+}
+int Comandos::en_cuadrante(){
+    return 0;
+}
+int Comandos::crear_mapa(){
+    return 0;
+}
+int Comandos::ruta_mas_larga(){
+    return 0;
+}
+int Comandos::ayuda(){
+    return 0;
+}
 
 int main()
 {
@@ -108,6 +142,7 @@ int main()
     Comandos comandos;
     std::cout << "$ ";
     std::cin.getline(input, 100);
+    comandos.iniciar_mapa();
     comandos.setInput(input);
     comandos.procesamiento();
 
