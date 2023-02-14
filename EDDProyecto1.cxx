@@ -93,43 +93,122 @@ int Comandos::cargar_comandos(){
         return 1;
     }
     if(parametros[2]!=NULL){
-        std::cout << "SE HAN INGRESADO MAS DE 2 PARAMETROS: ERROR" << std::endl;
+        std::cout << "SE HAN INGRESADO MAS DE UN PARAMETROS: ERROR" << std::endl;
         return 1;
     }
     std::cout << "COMANDO VALIDO" << std::endl;
     return 0;
 }
 int Comandos::cargar_elementos(){
+    if(parametros[1]==NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[2]!=NULL){
+        std::cout << "SE HAN INGRESADO MAS DE UN PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
+    std::cout << "COMANDO VALIDO" << std::endl;
     return 0;
 }
 int Comandos::agregar_movimiento(){
+    if(parametros[3] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[4]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
+
     return 0;
 }
 int Comandos::agregar_analisis(){
+    if(parametros[2] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[4]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::agregar_elemento(){
+    if(parametros[5] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[6]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::guardar(){
+    if(parametros[2] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[3]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::simular_comandos(){
+    if(parametros[2] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[3]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::salir(){
+    if(parametros[1] != NULL){
+        std::cout << "SE HAN INGRESASDO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::ubicar_elementos(){
+    if(parametros[1] != NULL){
+        std::cout << "SE HAN INGRESASDO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::en_cuadrante(){
+    if(parametros[4] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[5]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
+    
     return 0;
 }
 int Comandos::crear_mapa(){
+    if(parametros[1] == NULL){
+        std::cout << "INSUFIENTES PARAMETROS PARA EJECUTAR LA FUNCION" << std::endl;
+        return 1;
+    }
+    if(parametros[2]!= NULL){
+        std::cout << "SE HAN INGRESADO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::ruta_mas_larga(){
+    if(parametros[1] != NULL){
+        std::cout << "SE HAN INGRESASDO MAS DE TRES PARAMETROS: ERROR" << std::endl;
+        return 1;
+    }
     return 0;
 }
 int Comandos::ayuda(){
