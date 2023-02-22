@@ -3,4 +3,4 @@ project(EDD_Proyecto1_Limpio)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(EDD_Proyecto1_Limpio EDDProyecto1.cxx Comandos.h)
+add_executable(EDD_Proyecto1_Limpio Comandos.cxx Comandos.h main.cpp)

@@ -1,0 +1,4 @@
+mover
+correr
+cargar
+mirar

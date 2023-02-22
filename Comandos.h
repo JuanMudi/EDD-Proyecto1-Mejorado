@@ -8,10 +8,15 @@
 #include <map>
 #include <list>
 #include <vector>
+#include <queue>
+#include <cstring>
+#include <fstream>
 class Comandos {
 private:
     std::map<std::string,int> switchmap;
     std::vector<char*> parametros;
+    std::queue<std::string> cola_comandos,cola_elementos;
+
     char* input;
 public:
     char *getInput() const;
@@ -32,6 +37,7 @@ public:
     int ruta_mas_larga();
     int ayuda();
     void seleccion();
+    bool validar_parametros(int cant_parametros);
 };
 
 
