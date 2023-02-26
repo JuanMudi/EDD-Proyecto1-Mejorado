@@ -243,6 +243,14 @@ int Comandos::guardar()
 int Comandos::simular_comandos()
 {
     if(validar_parametros(2)==false) return 1;
+    float coord_X = atof(parametros[1]);
+    float coord_Y = atof(parametros[2]);
+
+    for(int i=0; i<cola_comandos.size();i++)
+    {
+
+    }
+
 
     return 0;
 }
