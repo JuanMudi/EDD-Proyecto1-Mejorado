@@ -195,20 +195,47 @@ int Comandos::agregar_movimiento()
 }
 
 int Comandos::agregar_analisis() {
+    //Validacion de parametros
     if(validar_parametros(2)==false) return 1;
-
-
+    //Validacion de los tipos de movimiento
+    if(stricmp(parametros[1],"fotografia")!= 0 && stricmp(parametros[1],"compisicion")!= 0 && stricmp(parametros[1],"perforar")!= 0)
+    {
+        std::cout << "La información del análisis no corresponde a los datos esperados (tipo, objeto, comentario)." << std::endl;
+        return 1;
+    }
+    std::cout << "El comando de analisis ha sido agregado exitosamente." << std::endl;
+    //Guardar en la cola los datos
+    cola_comandos.push(std::string(parametros[0]) + " " + std::string(parametros[1]) + std::string(parametros[2]) + std::string(parametros[3]) + std::string(parametros[4]));
     return 0;
 }
 int Comandos::agregar_elemento()
 {
     if(validar_parametros(5)==false) return 1;
+    if(stricmp(parametros[1],"roca")!= 0 && stricmp(parametros[1],"crater")!= 0 && stricmp(parametros[1],"monticulo")!= 0 && stricmp(parametros[1],"duna")!= 0)
+    {
+        std::cout << "La información del elemento no corresponde a los datos esperados (tipo, tamaño, unidad, x, y)." << std::endl;
+        return 1;
+    }
+    P_interes aux;
+    aux.t_componente = parametros[1];
+    aux.tamanio = atof(parametros[2]);
+    aux.u_medida = parametros[3];
+    aux.coor_x = atof(parametros[4]);
+    aux.coor_y = atof(parametros[5]);
+
+    std::cout << "El elemento ha sido agregado exitosamente." << std::endl;
 
     return 0;
 }
 int Comandos::guardar()
 {
     if(validar_parametros(2)==false) return 1;
+    std::ofstream arch(parametros[1]);
+    if(arch.fail())
+    {
+        std::cout << "Error guardando en " << parametros[1] << std::endl;
+    }
+    std::cout << "La información ha sido guardada en " << parametros[1] << std::endl;
 
 
     return 0;

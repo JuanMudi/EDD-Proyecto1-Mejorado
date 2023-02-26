@@ -11,6 +11,14 @@
 #include <queue>
 #include <cstring>
 #include <fstream>
+
+struct P_interes{
+    std::string t_componente;
+    float tamanio;
+    std::string u_medida;
+    float coor_x;
+    float coor_y;
+};
 class Comandos {
 private:
     //Mapa de los comandos
@@ -19,6 +27,8 @@ private:
     std::vector<char*> parametros;
     //Estructuras lineales para almacenar los datos
     std::queue<std::string> cola_comandos,cola_elementos;
+    //Lista de lugares de interes
+    std::list<P_interes> p_interes;
 
     char* input;
 public:
