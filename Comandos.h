@@ -13,12 +13,16 @@
 #include <fstream>
 class Comandos {
 private:
+    //Mapa de los comandos
     std::map<std::string,int> switchmap;
+    //Vector con los parametros recibidos
     std::vector<char*> parametros;
+    //Estructuras lineales para almacenar los datos
     std::queue<std::string> cola_comandos,cola_elementos;
 
     char* input;
 public:
+    //Encabezado de las funciones
     char *getInput() const;
     void setInput(char *input);
     void iniciar_mapa();

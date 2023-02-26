@@ -34,6 +34,7 @@ void Comandos::iniciar_mapa()
 void Comandos::procesamiento()
 {
     char *token;
+    //Borrar los pametros anteriores
     parametros.clear();
     //Tokenizar la cadena de entrada con la funcion std::strtok()
     token = std::strtok(input, " "); 
@@ -110,15 +111,19 @@ bool Comandos::validar_parametros(int cant_parametros) {
 }
 int Comandos::cargar_comandos()
 {
+    //Validacion de los parametros
     if(validar_parametros(1)==false) return 1;
+    //Vaciar la cola
     cola_comandos.empty();
     //Apertura de archivo
     std::fstream datos(parametros[1], std::ios::in);
+    //Verificacion de la apertura del archivo
     if(datos.fail()) {
         std::cout << parametros[1] << " no se encuentra o no puede leerse." << std::endl;
         datos.close();
         return 1;
     }
+    //Verificacion del contenido del archivo
     char *inf = new char[100];
     inf[0]='-';
     datos.getline(inf,100);
@@ -129,6 +134,7 @@ int Comandos::cargar_comandos()
         return 1;
     }
     int i=1;
+    //Obtencion de los datos del archivo
     while(!datos.eof()){
         cola_comandos.push(inf);
         i++;
@@ -141,6 +147,7 @@ int Comandos::cargar_comandos()
 
 int Comandos::cargar_elementos()
 {
+    //Validacion de los parametros
     if(validar_parametros(1)==false) return 1;
     cola_elementos.empty();
     //Apertura de archivo
@@ -173,13 +180,16 @@ int Comandos::cargar_elementos()
 }
 int Comandos::agregar_movimiento()
 {
+    //Validacion de parametros
     if(validar_parametros(3)==false) return 1;
+    //Validacion de los tipos de movimiento
     if(stricmp(parametros[1],"avanzar")!= 0 && stricmp(parametros[1],"girar")!= 0 )
     {
         std::cout << "La información del movimiento no corresponde a los datos esperados (tipo, magnitud, unidad)." << std::endl;
         return 1;
     }
     std::cout << "El comando de movimiento ha sido agregado exitosamente." << std::endl;
+    //Guardar en la cola los datos
     cola_comandos.push(std::string(parametros[0]) + " " + std::string(parametros[1]) + std::string(parametros[2]) + std::string(parametros[3]));
     return 0;
 }
@@ -213,7 +223,7 @@ int Comandos::salir()
 {
     if(validar_parametros(0)==false) return 1;
 
-    return 1;
+    exit (0);
     
 }
 int Comandos::ubicar_elementos() {
