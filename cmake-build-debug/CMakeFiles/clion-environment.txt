@@ -1,3 +1,4 @@
-ToolSet: 1.0 (local)Options: 
+ToolSet: w64 9.0 (local)@E:\WindowsUtilities\CLion 2022.3.2\bin\mingw
+Options: 
 
-Options:-DCMAKE_MAKE_PROGRAM=/home/mudx2/clion-2022.2.4/bin/ninja/linux/ninja
+Options:

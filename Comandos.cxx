@@ -174,7 +174,13 @@ int Comandos::cargar_elementos()
 int Comandos::agregar_movimiento()
 {
     if(validar_parametros(3)==false) return 1;
-
+    if(stricmp(parametros[1],"avanzar")!= 0 && stricmp(parametros[1],"girar")!= 0 )
+    {
+        std::cout << "La información del movimiento no corresponde a los datos esperados (tipo, magnitud, unidad)." << std::endl;
+        return 1;
+    }
+    std::cout << "El comando de movimiento ha sido agregado exitosamente." << std::endl;
+    cola_comandos.push(std::string(parametros[0]) + " " + std::string(parametros[1]) + std::string(parametros[2]) + std::string(parametros[3]));
     return 0;
 }
 
