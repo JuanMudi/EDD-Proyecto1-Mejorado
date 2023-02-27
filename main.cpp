@@ -7,7 +7,7 @@ int main()
     //Cadena de caracteres para recibir los comandos.
     char *input = new char[100];
     //Instancia de la clase Comandos
-    Comandos comandos;
+    Comandos comandos = *new Comandos;
     //Inicializacion del Map para ejecutar los comandos
     comandos.iniciar_mapa();
     while(true){

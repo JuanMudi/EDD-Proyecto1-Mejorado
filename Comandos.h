@@ -11,14 +11,9 @@
 #include <queue>
 #include <cstring>
 #include <fstream>
+#include "Movimiento.h"
+#include "Elemento.h"
 
-struct P_interes{
-    std::string t_componente;
-    float tamanio;
-    std::string u_medida;
-    float coor_x;
-    float coor_y;
-};
 class Comandos {
 private:
     //Mapa de los comandos
@@ -26,13 +21,16 @@ private:
     //Vector con los parametros recibidos
     std::vector<char*> parametros;
     //Estructuras lineales para almacenar los datos
-    std::queue<std::string> cola_comandos,cola_elementos;
-    //Lista de lugares de interes
-    std::list<P_interes> p_interes;
+    std::queue<Movimiento> cola_comandos;
+    std::queue<Elemento> cola_elementos;
+
+
 
     char* input;
 public:
-    //Encabezado de las funciones
+    explicit Comandos(const std::queue<Movimiento> &colaComandos);
+
+//Encabezado de las funciones
     char *getInput() const;
     void setInput(char *input);
     void iniciar_mapa();

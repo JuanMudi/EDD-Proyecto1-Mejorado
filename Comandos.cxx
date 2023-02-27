@@ -291,4 +291,6 @@ int Comandos::ayuda()
     return 0;
 }
 
+Comandos::Comandos(const std::queue<Movimiento> &colaComandos) : cola_comandos(colaComandos) {}
+
 
