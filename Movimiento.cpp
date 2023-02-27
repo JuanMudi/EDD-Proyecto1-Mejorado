@@ -3,6 +3,9 @@
 //
 
 #include "Movimiento.h"
+Movimiento::Movimiento() {
+    medida = 0;
+}
 
 char *Movimiento::getTipo() const {
     return tipo;

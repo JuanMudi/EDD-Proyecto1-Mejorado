@@ -12,6 +12,7 @@ private:
     float medida;
     char* u_medida  = new char [100];
 public:
+    Movimiento();
     char *getTipo() const;
 
     void setTipo(char *tipo);

@@ -135,8 +135,23 @@ int Comandos::cargar_comandos()
     }
     int i=1;
     //Obtencion de los datos del archivo
+    Movimiento aux = *new Movimiento();
     while(!datos.eof()){
-        cola_comandos.push(inf);
+        std::vector<char*> dd;
+        dd.clear();
+        char *token;
+        //Tokenizar la cadena de entrada con la funcion std::strtok()
+        token = std::strtok(input, " ");
+        while (token != NULL)
+        {
+            //Uso de vector<> para almacenar los parametros
+            dd.push_back(token);
+            token = (std::strtok(NULL, " "));
+        }
+        aux.setTipo(dd[0]);
+        aux.setMedida(atof(dd[1]));
+        aux.setUMedida(dd[2]);
+        cola_comandos.push(aux);
         i++;
         datos.getline(inf,100);
     }
@@ -167,13 +182,29 @@ int Comandos::cargar_elementos()
         return 1;
     }
     int i=1;
+    //Obtencion de los datos del archivo
+    Elemento aux = *new Elemento();
     while(!datos.eof()){
-        cola_elementos.push(inf);
+        std::vector<char*> dd;
+        dd.clear();
+        char *token;
+        //Tokenizar la cadena de entrada con la funcion std::strtok()
+        token = std::strtok(input, " ");
+        while (token != NULL)
+        {
+            //Uso de vector<> para almacenar los parametros
+            dd.push_back(token);
+            token = (std::strtok(NULL, " "));
+        }
+        aux.setTipoComp(dd[0]);
+        aux.setTamanio(atof(dd[1]));
+        aux.setUMedida(dd[2]);
+        aux.setCoordX(atof(dd[3]));
+        aux.setCoordX(atof(dd[4]));
+        cola_elementos.push(aux);
         i++;
         datos.getline(inf,100);
     }
-    std::cout << i << " elementos cargados correctamente desde " << parametros[1] << std::endl;
-    datos.close();
 
 
     return 0;
@@ -190,7 +221,11 @@ int Comandos::agregar_movimiento()
     }
     std::cout << "El comando de movimiento ha sido agregado exitosamente." << std::endl;
     //Guardar en la cola los datos
-    cola_comandos.push(std::string(parametros[0]) + " " + std::string(parametros[1]) + std::string(parametros[2]) + std::string(parametros[3]));
+    Movimiento aux = *new Movimiento;
+    aux.setTipo(parametros[0]);
+    aux.setMedida(atof(parametros[1]));
+    aux.setUMedida(parametros[2]);
+    cola_comandos.push(aux);
     return 0;
 }
 
