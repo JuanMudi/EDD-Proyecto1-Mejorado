@@ -292,20 +292,21 @@ int Comandos::simular_comandos()
     float coord_X = atof(parametros[1]);
     float coord_Y = atof(parametros[2]);
     float giro = 0;
-
-    for(int i=0; i<cola_comandos.size();i++)
+    int x = cola_comandos.size();
+    for(int i=0; i< x ;i++)
     {
         if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0  )
         {
-            coord_X = cola_comandos.front().getMedida() * std::cos(giro);
-            coord_Y = cola_comandos.front().getMedida() * std::sin(giro);
-            cola_comandos.pop();
+            coord_X += cola_comandos.front().getMedida() * std::cos(giro*PI/180);
+            coord_Y += cola_comandos.front().getMedida() * std::sin(giro*PI/180);
+
         }
         if(std::strcmp(cola_comandos.front().getTipo(),"girar")==0 )
         {
             giro += cola_comandos.front().getMedida();
-            cola_comandos.pop();
+
         }
+        cola_comandos.pop();
 
 
     }

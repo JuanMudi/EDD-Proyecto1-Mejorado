@@ -18,6 +18,7 @@
 
 class Comandos {
 private:
+    const float PI = 3.14159265359;
     //Mapa de los comandos
     std::map<std::string,int> switchmap;
     //Vector con los parametros recibidos
