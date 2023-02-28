@@ -1,22 +1,17 @@
 //
-// Created by J_mud on 22/02/2023.
+// CREADO POR JUAN MUNOZ, VICTOR PENARANDA Y SANTIAGO RUEDA
+// ENTREGA 1
 //
 #include "Comandos.h"
 int main()
 {
-    //Cadena de caracteres para recibir los comandos.
-    char *input = new char[100];
-    //Instancia de la clase Comandos
-    Comandos comandos = *new Comandos;
-    //Inicializacion del Map para ejecutar los comandos
-    comandos.iniciar_mapa();
+    char *input = new char[100]; //Cadena de caracteres para recibir los comandos.
+    Comandos comandos = *new Comandos; //Instancia de la clase Comandos
+    comandos.iniciar_mapa(); //Inicializacion del Map para ejecutar los comandos
     while(true){
         std::cout << std::endl << "$ ";
-        //Recepcion de datos de entrada
-        std::cin.getline(input, 100);
-        //Setter de los comandos
-        comandos.setInput(input);
-        //Procesamiento de comandos
-        comandos.procesamiento();
+        std::cin.getline(input, 100); //Recepcion de datos de entrada
+        comandos.setInput(input); //Setter de los comandos
+        comandos.procesamiento(); //Procesamiento de comandos
     }
 }
