@@ -11,7 +11,7 @@ int main()
     //Inicializacion del Map para ejecutar los comandos
     comandos.iniciar_mapa();
     while(true){
-        std::cout << "$ ";
+        std::cout << std::endl << "$ ";
         //Recepcion de datos de entrada
         std::cin.getline(input, 100);
         //Setter de los comandos

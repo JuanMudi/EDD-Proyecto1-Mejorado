@@ -291,10 +291,18 @@ int Comandos::simular_comandos()
     for(int i=0; i<cola_comandos.size();i++)
     {
         if(cola_comandos.front().getTipo() == "avanzar"  )
+        {
+            coord_X = cola_comandos.front().getMedida() * std::cos(giro);
+            coord_Y = cola_comandos.front().getMedida() * std::sin(giro);
+            cola_comandos.pop();
+        }
+        if(cola_comandos.front().getTipo() == "girar"  )
+        {
+            giro += cola_comandos.front().getMedida();
+            cola_comandos.pop();
+        }
 
     }
-
-
     return 0;
 }
 int Comandos::salir()
@@ -334,6 +342,6 @@ int Comandos::ayuda()
     return 0;
 }
 
-Comandos::Comandos(const std::queue<Movimiento> &colaComandos) : cola_comandos(colaComandos) {}
+
 
 

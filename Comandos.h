@@ -14,6 +14,7 @@
 #include "Movimiento.h"
 #include "Elemento.h"
 #include "Analisis.h"
+#include <cmath>
 
 class Comandos {
 private:
@@ -25,12 +26,10 @@ private:
     std::queue<Movimiento> cola_comandos;
     std::queue<Elemento> cola_elementos;
     std::queue<Analisis> cola_analisis;
-
-
-
     char* input;
+
 public:
-    explicit Comandos(const std::queue<Movimiento> &colaComandos);
+
 
 //Encabezado de las funciones
     char *getInput() const;
