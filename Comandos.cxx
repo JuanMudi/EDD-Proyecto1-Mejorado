@@ -222,9 +222,9 @@ int Comandos::agregar_movimiento()
     std::cout << "El comando de movimiento ha sido agregado exitosamente." << std::endl;
     //Guardar en la cola los datos
     Movimiento aux = *new Movimiento;
-    aux.setTipo(parametros[0]);
-    aux.setMedida(atof(parametros[1]));
-    aux.setUMedida(parametros[2]);
+    aux.setTipo(parametros[1]);
+    aux.setMedida(atof(parametros[2]));
+    aux.setUMedida(parametros[3]);
     cola_comandos.push(aux);
     return 0;
 }
@@ -240,7 +240,11 @@ int Comandos::agregar_analisis() {
     }
     std::cout << "El comando de analisis ha sido agregado exitosamente." << std::endl;
     //Guardar en la cola los datos
-    cola_comandos.push(std::string(parametros[0]) + " " + std::string(parametros[1]) + std::string(parametros[2]) + std::string(parametros[3]) + std::string(parametros[4]));
+    Analisis aux = *new Analisis;
+    aux.setTipoAnalisis(parametros[1]);
+    aux.setObjeto(parametros[2]);
+    aux.setComentario(parametros[3]);
+    cola_analisis.push(aux);
     return 0;
 }
 int Comandos::agregar_elemento()
@@ -251,12 +255,14 @@ int Comandos::agregar_elemento()
         std::cout << "La información del elemento no corresponde a los datos esperados (tipo, tamaño, unidad, x, y)." << std::endl;
         return 1;
     }
-    P_interes aux;
-    aux.t_componente = parametros[1];
-    aux.tamanio = atof(parametros[2]);
-    aux.u_medida = parametros[3];
-    aux.coor_x = atof(parametros[4]);
-    aux.coor_y = atof(parametros[5]);
+    Elemento aux = *new Elemento;
+    aux.setTipoComp(parametros[1]);
+    aux.setTamanio(atof(parametros[2]));
+    aux.setUMedida(parametros[3]);
+    aux.setCoordX(atof(parametros[3]));
+    aux.setCoordY(atof(parametros[3]));
+    cola_elementos.push(aux);
+
 
     std::cout << "El elemento ha sido agregado exitosamente." << std::endl;
 
@@ -280,9 +286,11 @@ int Comandos::simular_comandos()
     if(validar_parametros(2)==false) return 1;
     float coord_X = atof(parametros[1]);
     float coord_Y = atof(parametros[2]);
+    float giro = 0;
 
     for(int i=0; i<cola_comandos.size();i++)
     {
+        if(cola_comandos.front().getTipo() == "avanzar"  )
 
     }
 

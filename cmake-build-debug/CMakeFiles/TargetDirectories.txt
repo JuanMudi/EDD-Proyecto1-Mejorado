@@ -1,3 +1,3 @@
-C:/Users/J_mud/CLionProjects/EDD-Proyecto1-Mejorado/cmake-build-debug/CMakeFiles/EDD_Proyecto1_Limpio.dir
-C:/Users/J_mud/CLionProjects/EDD-Proyecto1-Mejorado/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/J_mud/CLionProjects/EDD-Proyecto1-Mejorado/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+E:/Downloads/taller_2_resuelto/EDD-Proyecto1-Mejorado/cmake-build-debug/CMakeFiles/EDD_Proyecto1_Limpio.dir
+E:/Downloads/taller_2_resuelto/EDD-Proyecto1-Mejorado/cmake-build-debug/CMakeFiles/edit_cache.dir
+E:/Downloads/taller_2_resuelto/EDD-Proyecto1-Mejorado/cmake-build-debug/CMakeFiles/rebuild_cache.dir

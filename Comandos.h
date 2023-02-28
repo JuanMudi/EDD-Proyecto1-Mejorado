@@ -13,6 +13,7 @@
 #include <fstream>
 #include "Movimiento.h"
 #include "Elemento.h"
+#include "Analisis.h"
 
 class Comandos {
 private:
@@ -23,6 +24,7 @@ private:
     //Estructuras lineales para almacenar los datos
     std::queue<Movimiento> cola_comandos;
     std::queue<Elemento> cola_elementos;
+    std::queue<Analisis> cola_analisis;
 
 
 
