@@ -133,27 +133,32 @@ int Comandos::cargar_comandos()
         datos.close();
         return 1;
     }
-    int i=1;
+    int i=0;
     //Obtencion de los datos del archivo
-    Movimiento aux = *new Movimiento();
+
+    std::vector<char*> dd;
+    dd.clear();
+    datos.seekg(0);
     while(!datos.eof()){
-        std::vector<char*> dd;
-        dd.clear();
+        Movimiento aux = *new Movimiento();
+        datos.getline(inf,100);
         char *token;
         //Tokenizar la cadena de entrada con la funcion std::strtok()
-        token = std::strtok(input, " ");
+        token = std::strtok(inf, " ");
         while (token != NULL)
         {
             //Uso de vector<> para almacenar los parametros
             dd.push_back(token);
             token = (std::strtok(NULL, " "));
+
         }
         aux.setTipo(dd[0]);
         aux.setMedida(atof(dd[1]));
         aux.setUMedida(dd[2]);
         cola_comandos.push(aux);
         i++;
-        datos.getline(inf,100);
+
+        dd.clear();
     }
     std::cout << i << " comandos cargados correctamente desde " << parametros[1] << std::endl;
     datos.close();
@@ -290,19 +295,21 @@ int Comandos::simular_comandos()
 
     for(int i=0; i<cola_comandos.size();i++)
     {
-        if(cola_comandos.front().getTipo() == "avanzar"  )
+        if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0  )
         {
             coord_X = cola_comandos.front().getMedida() * std::cos(giro);
             coord_Y = cola_comandos.front().getMedida() * std::sin(giro);
             cola_comandos.pop();
         }
-        if(cola_comandos.front().getTipo() == "girar"  )
+        if(std::strcmp(cola_comandos.front().getTipo(),"girar")==0 )
         {
             giro += cola_comandos.front().getMedida();
             cola_comandos.pop();
         }
 
+
     }
+    std::cout << "Coordenada x: " << coord_X << " Coordenada y: " << coord_Y << std::endl;
     return 0;
 }
 int Comandos::salir()

@@ -1,0 +1,3 @@
+avanzar 10 metros
+girar 90 grados
+avanzar 15 metros

@@ -3,6 +3,8 @@
 //
 
 #include "Movimiento.h"
+#include <iostream>
+#include <cstring>
 Movimiento::Movimiento() {
     medida = 0;
 }
@@ -12,7 +14,7 @@ char *Movimiento::getTipo() const {
 }
 
 void Movimiento::setTipo(char *tipo) {
-    Movimiento::tipo = tipo;
+    std::strcpy(Movimiento::tipo, tipo);
 }
 
 float Movimiento::getMedida() const {
@@ -28,5 +30,5 @@ char *Movimiento::getUMedida() const {
 }
 
 void Movimiento::setUMedida(char *uMedida) {
-    u_medida = uMedida;
+    std::strcpy(Movimiento::u_medida, uMedida);
 }
