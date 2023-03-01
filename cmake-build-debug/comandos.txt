@@ -1,3 +1,4 @@
-avanzar 10 metros
-girar 90 grados
-avanzar 15 metros
+girar -180 grafos
+avanzar 252.5 metros
+girar 8 grados
+avanzar 6 metros
