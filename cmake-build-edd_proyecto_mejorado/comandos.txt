@@ -1,4 +1,0 @@
-mover
-correr
-cargar
-mirar

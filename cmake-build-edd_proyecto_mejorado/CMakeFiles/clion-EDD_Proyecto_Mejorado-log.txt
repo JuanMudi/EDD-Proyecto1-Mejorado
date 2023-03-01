@@ -1,4 +1,0 @@
-"C:\Program Files\JetBrains\CLion 2022.3.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" -S C:\Users\J_mud\CLionProjects\EDD-Proyecto1-Mejorado -B C:\Users\J_mud\CLionProjects\EDD-Proyecto1-Mejorado\cmake-build-edd_proyecto_mejorado
--- Configuring done
--- Generating done
--- Build files have been written to: C:/Users/J_mud/CLionProjects/EDD-Proyecto1-Mejorado/cmake-build-edd_proyecto_mejorado

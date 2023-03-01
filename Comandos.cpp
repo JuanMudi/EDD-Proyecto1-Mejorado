@@ -221,7 +221,7 @@ int Comandos::agregar_movimiento()
     //Validacion de parametros
     if(validar_parametros(3)==false) return 1;
     //Validacion de los tipos de movimiento
-    if(stricmp(parametros[1],"avanzar")!= 0 && stricmp(parametros[1],"girar")!= 0 )
+    if(strcmp(parametros[1],"avanzar")!= 0 && strcmp(parametros[1],"girar")!= 0 )
     {
         std::cout << "La información del movimiento no corresponde a los datos esperados (tipo, magnitud, unidad)." << std::endl;
         return 1;
@@ -248,7 +248,7 @@ int Comandos::agregar_analisis() {
         return false;
     }
     //Validacion de los tipos de movimiento
-    if(stricmp(parametros[1],"fotografia")!= 0 && stricmp(parametros[1],"compisicion")!= 0 && stricmp(parametros[1],"perforar")!= 0)
+    if(strcmp(parametros[1],"fotografia")!= 0 && strcmp(parametros[1],"compisicion")!= 0 && strcmp(parametros[1],"perforar")!= 0)
     {
         std::cout << "La información del análisis no corresponde a los datos esperados (tipo, objeto, comentario)." << std::endl;
         return 1;
@@ -265,7 +265,7 @@ int Comandos::agregar_analisis() {
 int Comandos::agregar_elemento()
 {
     if(validar_parametros(5)==false) return 1;
-    if(stricmp(parametros[1],"roca")!= 0 && stricmp(parametros[1],"crater")!= 0 && stricmp(parametros[1],"monticulo")!= 0 && stricmp(parametros[1],"duna")!= 0)
+    if(strcmp(parametros[1],"roca")!= 0 && strcmp(parametros[1],"crater")!= 0 && strcmp(parametros[1],"monticulo")!= 0 && strcmp(parametros[1],"duna")!= 0)
     {
         std::cout << "La información del elemento no corresponde a los datos esperados (tipo, tamaño, unidad, x, y)." << std::endl;
         return 1;
@@ -286,12 +286,26 @@ int Comandos::agregar_elemento()
 int Comandos::guardar()
 {
     if(validar_parametros(2)==false) return 1;
-    std::ofstream arch(parametros[1]);
+    std::ofstream arch;
+    arch.open(std::strcat(parametros[2],".txt"), std::ios::out);
     if(arch.fail())
     {
         std::cout << "Error guardando en " << parametros[1] << std::endl;
     }
-    std::cout << "La información ha sido guardada en " << parametros[1] << std::endl;
+    for (int i = 0; i < cola_comandos.size(); i++) {
+
+
+        arch << cola_comandos.front().getTipo() << " " << cola_comandos.front().getMedida() << " " << cola_comandos.front().getUMedida() << "\n";
+        cola_comandos.push(cola_comandos.front());
+        cola_comandos.pop();
+    }
+    for (int i = 0; i < cola_analisis.size(); i++) {
+        arch << cola_analisis.front().getTipoAnalisis() << " " << cola_analisis.front().getObjeto() << " " << cola_analisis.front().getComentario() << "\n";
+        cola_analisis.push(cola_analisis.front());
+        cola_analisis.pop();
+    }
+    arch.close();
+    std::cout << "La información ha sido guardada en " << parametros[2] << std::endl;
 
 
     return 0;
@@ -313,18 +327,18 @@ int Comandos::simular_comandos()
         }
         else if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"milimetros")==0)
         {
-            coord_X += (cola_comandos.front().getMedida()/1000) * std::cos(giro);
-            coord_Y += (cola_comandos.front().getMedida()/1000) * std::sin(giro);
+            coord_X += (cola_comandos.front().getMedida()/1000) * std::cos(giro*PI/180);
+            coord_Y += (cola_comandos.front().getMedida()/1000) * std::sin(giro*PI/180);
         }
         else if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"centimetros")==0)
         {
-            coord_X += (cola_comandos.front().getMedida()/100) * std::cos(giro);
-            coord_Y += (cola_comandos.front().getMedida()/100) * std::sin(giro);
+            coord_X += (cola_comandos.front().getMedida()/100) * std::cos(giro*PI/180);
+            coord_Y += (cola_comandos.front().getMedida()/100) * std::sin(giro*PI/180);
         }
         else if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"kilometros")==0)
         {
-            coord_X += (cola_comandos.front().getMedida()*1000) * std::cos(giro);
-            coord_Y += (cola_comandos.front().getMedida()*1000) * std::sin(giro);
+            coord_X += (cola_comandos.front().getMedida()*1000) * std::cos(giro*PI/180);
+            coord_Y += (cola_comandos.front().getMedida()*1000) * std::sin(giro*PI/180);
         }
         if(std::strcmp(cola_comandos.front().getTipo(),"girar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"grados")==0)
         {
