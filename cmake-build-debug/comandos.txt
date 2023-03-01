@@ -1,4 +1,4 @@
-girar -180 grafos
+avanzar -180 grados
 avanzar 252.5 metros
 girar 8 grados
-avanzar 6 metros
+avanzar 600 centimetros

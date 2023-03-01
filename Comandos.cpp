@@ -305,16 +305,35 @@ int Comandos::simular_comandos()
     int x = cola_comandos.size();
     for(int i=0; i< x ;i++)
     {
-        if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0  )
+        if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"metros")==0 )
         {
             coord_X += cola_comandos.front().getMedida() * std::cos(giro*PI/180);
             coord_Y += cola_comandos.front().getMedida() * std::sin(giro*PI/180);
 
         }
-        if(std::strcmp(cola_comandos.front().getTipo(),"girar")==0 )
+        else if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"milimetros")==0)
+        {
+            coord_X += (cola_comandos.front().getMedida()/1000) * std::cos(giro);
+            coord_Y += (cola_comandos.front().getMedida()/1000) * std::sin(giro);
+        }
+        else if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"centimetros")==0)
+        {
+            coord_X += (cola_comandos.front().getMedida()/100) * std::cos(giro);
+            coord_Y += (cola_comandos.front().getMedida()/100) * std::sin(giro);
+        }
+        else if(std::strcmp(cola_comandos.front().getTipo(),"avanzar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"kilometros")==0)
+        {
+            coord_X += (cola_comandos.front().getMedida()*1000) * std::cos(giro);
+            coord_Y += (cola_comandos.front().getMedida()*1000) * std::sin(giro);
+        }
+        if(std::strcmp(cola_comandos.front().getTipo(),"girar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"grados")==0)
         {
             giro += cola_comandos.front().getMedida();
 
+        }
+        else if(std::strcmp(cola_comandos.front().getTipo(),"girar")==0 && std::strcmp(cola_comandos.front().getUMedida(),"radianes")==0)
+        {
+            giro += cola_comandos.front().getMedida()*PI/180;
         }
         cola_comandos.pop();
 
